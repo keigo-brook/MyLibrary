@@ -1,4 +1,4 @@
-#include "myHeahder.h"
+#include "../myHeahder.h"
 
 const int MAX_V = 1000;
 
