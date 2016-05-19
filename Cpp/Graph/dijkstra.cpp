@@ -42,18 +42,17 @@ void dijkstra(int s) {
 
 struct edge {
     int to, cost;
+    edge(int to, int cost) : to(to), cost(cost) {}
 };
-vector<edge> G[MAX_V];
-// int V;
-// int d[MAX_V];
+// vector<edge> G(MAX_V);
 
-// 始点sから各頂点への最短距離を求める
+// Graph上のn個の頂点で, 始点sから各頂点への最短距離の配列を返す
 // using priority_queue, O(|E|log|V|)
-void dijkstra1(int s) {
+vector<int> dijkstra1(int s, int n, vector<vector<edge> > &Graph) {
     // pair<int, int>のfirstは最短距離,secondは頂点の番号
     // greater<P>を指定することでfirstが小さい順に取り出せるようにする
     priority_queue<PII, vector<PII>, greater<PII> > que;
-    fill(d, d + V, INF);
+    vector<int> d(n, INF);
     d[s] = 0;
     que.push(PII(0, s));
 
@@ -63,12 +62,12 @@ void dijkstra1(int s) {
         if (d[v] < p.first) {
             continue;
         }
-        for (int i = 0; i < G[v].size(); ++i) {
-            edge e = G[v][i];
+        for (edge e : Graph[v]) {
             if (d[e.to] > d[v] + e.cost) {
                 d[e.to] = d[v] + e.cost;
                 que.push(PII(d[e.to], e.to));
             }
         }
     }
+    return d;
 }

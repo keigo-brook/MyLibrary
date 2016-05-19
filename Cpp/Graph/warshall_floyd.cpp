@@ -17,12 +17,17 @@ void warshall_floyd() {
     }
 }
 
-void test_warshall_floyd() {
-    // init d
+void init_warshall_graph() {
     fill(d[0], d[V], INF);
     REP(i, V) {
         d[i][i] = 0;
     }
+}
+
+
+void test_warshall_floyd() {
+    // init d
+    init_warshall_graph();
 
     // set all d here
 
