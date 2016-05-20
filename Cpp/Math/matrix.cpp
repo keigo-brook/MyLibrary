@@ -4,7 +4,7 @@
  */
 
 
-#include "myHeahder.h"
+#include "../myHeahder.h"
 
 const int MOD = INT_MAX;
 

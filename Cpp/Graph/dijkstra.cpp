@@ -44,7 +44,7 @@ struct edge {
     int to, cost;
     edge(int to, int cost) : to(to), cost(cost) {}
 };
-// vector<edge> G(MAX_V);
+// vector<vector<edge> > G(MAX_V);
 
 // Graph上のn個の頂点で, 始点sから各頂点への最短距離の配列を返す
 // using priority_queue, O(|E|log|V|)

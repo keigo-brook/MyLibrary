@@ -1,4 +1,4 @@
-#include "myHeahder.h"
+#include "../myHeahder.h"
 
 // https://ja.wikipedia.org/wiki/トポロジカルソート
 
@@ -9,7 +9,7 @@ struct edge {
 };
 
 int V;
-vector<edge> dag[MAX_V];
+vector<vector<edge> > dag(MAX_V);
 // used[n] = [-1|0|1], [一時的|未探索|探索済み]
 int used[MAX_V];
 // トポロジカルソートされた結果が入るリスト
