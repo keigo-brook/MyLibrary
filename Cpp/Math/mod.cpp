@@ -75,3 +75,12 @@ ll mod_comb(ll n, ll k, ll p) {
     }
     return a1 * mod_inverse(a2 * a3 % p, p) % p;
 }
+
+// 桁Mod
+int digitsMod(string s, int m) {
+  int s_mod_m = 0;
+  REP(i, (int)s.size()) {
+    s_mod_m = (s_mod_m * 10 + s[i] - '0') % m;
+  }
+  return s_mod_m;
+}
