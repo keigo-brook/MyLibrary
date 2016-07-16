@@ -53,7 +53,7 @@ int topological_sort() {
             // 閉路あり
             return false;
         }
-    }    
+    }
     return true;
 }
 

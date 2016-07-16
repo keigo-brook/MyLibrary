@@ -1,6 +1,6 @@
 #include "../myHeahder.h"
 
-const int MAX_V = 1000;
+#include "graph.cpp"
 
 // cost[u][v]は辺e=(u,v)のコスト(存在しない場合はINF)
 int cost[MAX_V][MAX_V];
@@ -39,16 +39,9 @@ void dijkstra(int s) {
     }
 }
 
-
-struct edge {
-    int to, cost;
-    edge(int to, int cost) : to(to), cost(cost) {}
-};
-// vector<vector<edge> > G(MAX_V);
-
 // Graph上のn個の頂点で, 始点sから各頂点への最短距離の配列を返す
 // using priority_queue, O(|E|log|V|)
-vector<int> dijkstra1(int s, int n, vector<vector<edge> > &Graph) {
+vector<int> dijkstra1(int s, int n, Graph &g) {
     // pair<int, int>のfirstは最短距離,secondは頂点の番号
     // greater<P>を指定することでfirstが小さい順に取り出せるようにする
     priority_queue<PII, vector<PII>, greater<PII> > que;
@@ -62,7 +55,7 @@ vector<int> dijkstra1(int s, int n, vector<vector<edge> > &Graph) {
         if (d[v] < p.first) {
             continue;
         }
-        for (edge e : Graph[v]) {
+        for (edge e : g[v]) {
             if (d[e.to] > d[v] + e.cost) {
                 d[e.to] = d[v] + e.cost;
                 que.push(PII(d[e.to], e.to));
