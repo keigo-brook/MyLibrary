@@ -1,4 +1,4 @@
-/*
+int/*
  * Created by KeigoOgawa
  * Queue
  */
